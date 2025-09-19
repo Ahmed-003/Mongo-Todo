@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
+import { Todo } from "./model/todoSchema.js";
 
 const app = express();
 app.use(cors());
@@ -11,12 +12,6 @@ mongoose.connect("mongodb+srv://admin:admin@cluster0.2b1v4xh.mongodb.net/")
   .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-// Schema + Model
-const todoSchema = new mongoose.Schema({
-  text: String
-});
-
-const Todo = mongoose.model("Todo", todoSchema);
 
 // Routes
 // Get all todos
